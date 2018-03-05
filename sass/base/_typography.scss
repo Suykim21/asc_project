@@ -1,0 +1,48 @@
+.heading_one {
+  font-size: 6rem;
+  font-weight: 300;
+  color: $color-theme-light;
+}
+
+.heading_two {
+  font-size: 3rem;
+  font-weight: 300;
+  color: $color-primary-heading;
+
+  &--bold {
+    margin: 2rem auto;
+    font-weight: 400;
+  }
+}
+
+.heading_three {
+  font-size: 2rem;
+  color: $color-primary-heading;
+  margin: 1rem 0;
+}
+
+.heading_four {
+  font-size: 1.5rem;
+  color: $color-primary-heading;
+}
+
+
+.paragraph {
+  font-size: 1.3rem;
+  color: $color-white;
+
+  &--black {
+    color: $color-primary;
+    font-size: 1.5rem;
+  }
+
+  &--footer {
+    margin: 1.5rem 0;
+  }
+
+  & span {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 1rem;
+  }
+}

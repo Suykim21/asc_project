@@ -1,0 +1,78 @@
+.about {
+  display: grid;
+  grid-template-areas: "text imgs";
+  padding: 10rem;
+  grid-gap: 7rem;
+
+  max-height: 45rem;
+
+  @include respond(tab-port) {
+    grid-gap: 0;
+    padding: 5rem;
+  }
+
+  @include respond(phone) {
+    grid-template-areas:
+      "text"
+      "imgs";
+
+    padding: 2.5rem;
+    margin-bottom: 18rem;
+  }
+
+  &__details {
+    grid-area: text;
+    padding: 4rem;
+
+    @include respond(phone) {
+      padding: 2rem;
+    }
+
+    // display: grid;
+    // align-items: center;
+  }
+
+  &__imgs {
+    grid-area: imgs;
+    position: relative;
+  }
+
+  &__img {
+    box-shadow: $shadow;
+    border-radius: 2px;
+    width: 90%;
+
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 1.5rem;
+
+    @include respond(phone) {
+      width: 65%;
+      outline-offset: 0.5rem;
+    }
+
+    &--right {
+      width: 75%;
+
+      position: absolute;
+      top: 35%;
+      left: 25%;
+
+      @include respond(phone) {
+        width: 65%;
+        left: 35%;
+      }
+    }
+
+    &:hover {
+      outline: 1.2rem solid $color-theme-light;
+      transform: scale(1.05);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+
+      @include respond(phone) {
+        outline: 0.5rem solid $color-theme-light;
+      }
+    }
+  }
+}

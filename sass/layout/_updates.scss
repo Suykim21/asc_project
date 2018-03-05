@@ -1,0 +1,29 @@
+.updates {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+  margin: 5rem;
+
+  // justify-content: center;
+
+  @include respond(phone) {
+    margin: 3rem;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    margin: 2rem auto;
+
+    @include respond(phone) {
+      display:unset;
+    }
+  }
+
+  &__date {
+    margin-right: 5rem;
+  }
+}

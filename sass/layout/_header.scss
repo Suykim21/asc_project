@@ -1,0 +1,132 @@
+.header {
+  display: grid;
+  margin-top: -8rem;
+
+
+
+  grid-template-areas:
+    "showcase showcase"
+    "showcase showcase";
+  
+  @include respond(phone) {
+    grid-template-areas:
+      "showcase showcase";
+
+    margin-top:unset;
+  }
+
+  &__showcase {
+    grid-area: showcase;
+    height: 100vh;
+    background-image: linear-gradient(rgba($color-theme-light, .2), rgba($color-theme-dark, .9)), url(https://image.ibb.co/kYJK8x/showcase.jpg);
+   
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: $shadow;
+  }
+
+  &__heading {
+    @include respond(tab-port) {
+      margin-top: 3.5rem;
+    }
+
+    @include respond(phone) {
+      margin-top: 4rem;
+    }
+  }
+
+  &__paragraph {
+    color: $color-white;
+    font-size: 2rem;
+  }
+
+  // LOGOS
+  &__seenon-text {
+    // aligning lines with text
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+    width: 100%;
+
+    font-size: 1.6rem;
+    color: $color-grey-light;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 3rem;
+    justify-items: center;
+
+    & img {
+      height: 2.7rem;
+    }
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 3rem;
+    }
+  }
+
+  &__grp_one,
+  &__grp_two,
+  &__grp_three,
+  &__grp_four,
+  &__grp_five {
+    // display: none;
+    margin: 2rem auto;
+    // animation: FadeIn 10s linear infinite;
+  }
+
+  &__grp_two,
+  &__grp_three {
+    display: none;
+  }
+
+
+
+  // HEADER BOX
+  &__box {
+    grid-area: box;
+    background: $color-theme-dark;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+
+    text-align: center;
+    padding: 8.5rem 2rem; 
+
+    @include respond(phone) {
+      display:unset;
+      padding: 2rem;
+    }
+  }
+
+  &__img {
+    height: 10rem;
+    margin-top: 1rem;
+    transform: scale(1);
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

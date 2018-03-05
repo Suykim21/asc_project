@@ -1,0 +1,36 @@
+.btn {
+  display: inline-block;
+
+  font-size: 1.2rem;
+  color: $color-white;
+  text-transform: uppercase;
+
+  padding: 0.8rem 1.5rem;
+  margin: 1.5rem 0;
+
+  border: 2px solid $color-theme-light;
+  transition: all 0.3s;
+
+  & span {
+    margin-left: 0.3rem;
+    transition: margin-left 0.2s;
+  }
+
+  &:hover {
+    background: $color-theme-light;
+    color: $color-white;
+    
+    span {
+      margin-left: 0.8rem;
+    }
+  }
+
+  &--option {
+    margin-top: 3rem;
+  }
+
+  &--black {
+    border: none;
+    color: $color-theme-light;
+  }
+}

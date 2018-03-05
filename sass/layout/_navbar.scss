@@ -1,0 +1,238 @@
+.navbar {
+  // background: $color-primary;
+  color: $color-white;
+
+  @include respond(phone) {
+    width: 60vw;
+    height: 100vh;
+    transform: translateX(-100%);
+
+    position: fixed;
+    z-index: 100000;
+
+    transition: transform 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+
+    background-color: rgba(black, 0.85);
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 2rem;
+    font-size: 2.6rem;
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    position: relative;
+
+    &--header {
+      display: none;
+      color: $color-white;
+      padding: 0 1rem;
+
+      @include respond(phone) {
+        display:unset;
+      }
+    }
+
+    &--footer {
+      color: $color-white;
+      font-size: 3rem;
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-weight: 300;
+
+    @include respond(phone) {
+      font-size: 7rem;
+    }
+  }
+
+  &__subheading {
+    font-size: 1.1rem;
+    margin: 0;
+
+    position: absolute;
+    top: 70%;
+
+    @include respond(tab-port) {
+      font-size: .9rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.9rem;
+    }
+  }
+
+  &__list {
+    @include respond(phone) {
+      margin-top: 3rem;
+    }
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(phone) {
+      flex-direction: column;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__item {
+    margin-left: 6rem;
+
+    & > a {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $color-theme-light;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all .2s ease-in-out 0s;
+      }
+
+      &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+    }
+
+
+
+    @include respond(phone) {
+      margin-top: 3rem;
+      margin-left: 0;
+    }
+  }
+}
+
+// MOBILE NAV ICON
+.navigation {
+  // z-index: 1000;
+  position: relative;
+  // background: rgba(black, .7);
+
+
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    border-radius: 50%;
+    z-index: 10000;
+    box-shadow: 0 1rem 3rem rgba(black, 0.1);
+    display: none;
+
+    text-align: center;
+    cursor: pointer;
+
+    @include respond(phone) {
+      display: block;
+    }
+  }
+
+  // &--red {
+  //   background-color: $color-primary-dark;
+  // }
+
+  // FUNCTIONALITY
+  &__checkbox:checked ~ .navbar {
+    transform: translateX(0);
+  }
+
+  // ICON
+
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: black;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

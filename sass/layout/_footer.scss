@@ -1,0 +1,61 @@
+.footer {
+  background: $color-theme-dark;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+
+  padding: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include respond(tab-port) {
+    flex-wrap: wrap;
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+
+    @include respond(phone) {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__contact {
+    margin: 0 3rem;
+    align-self: flex-start;
+    @include respond(phone) {
+      margin: 2rem 0;
+    }
+  }
+
+  &__address {
+    align-self: flex-start;
+  }
+
+  &__icon {
+    height: 3rem;
+    width: 3rem;
+    fill: $color-white;
+
+    transform: scale(1);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__social {
+    @include respond(tab-port) {
+      margin-top: 3rem;
+    }
+    & a {
+      &:nth-child(2) {
+        margin: 0 1rem;
+      }
+    }
+  }
+}
